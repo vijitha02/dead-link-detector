@@ -1,0 +1,91 @@
+2025-06-26 15:38:19,579 ERROR: Request error while scanning http://localhost:8000: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002427F8E3230>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')) [in D:\new\backend\routes\scan.py:141]
+2025-06-26 15:38:19,579 ERROR: Request error while scanning http://localhost:8000: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002427F8E3230>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')) [in D:\new\backend\routes\scan.py:141]
+2025-06-26 17:23:37,524 ERROR: Not Found: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in D:\new\backend\app.py:38]
+2025-06-26 17:42:07,896 ERROR: Not Found: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in D:\new\backend\app.py:38]
+2025-06-26 17:42:07,896 ERROR: Not Found: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in D:\new\backend\app.py:38]
+2025-06-26 18:43:42,449 ERROR: Connection refused while scanning http://127.0.0.1:5501/index.html. Target server may be down or not accepting connections. [in D:\new\backend\routes\scan.py:160]
+2025-06-26 18:43:42,449 ERROR: Connection refused while scanning http://127.0.0.1:5501/index.html. Target server may be down or not accepting connections. [in D:\new\backend\routes\scan.py:160]
+2025-06-26 19:09:49,231 ERROR: Connection refused while scanning http://127.0.0.1:5501/index.html. Target server may be down or not accepting connections. [in D:\new\backend\routes\scan.py:160]
+2025-06-26 19:10:45,947 ERROR: Exception on /settings [GET] [in D:\new\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\new\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\new\backend\routes\settings.py", line 89, in settings_page
+    return render_template('settings.html')
+           ^^^^^^^^^^^^^^^
+NameError: name 'render_template' is not defined
+2025-06-26 19:10:46,020 ERROR: Server Error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in D:\new\backend\app.py:32]
+2025-06-26 19:11:11,621 ERROR: Request error while scanning https://sampleforlink.my.canva.site/dagrrxtwk6q: HTTPSConnectionPool(host='sampleforlink.my.canva.site', port=443): Max retries exceeded with url: /dagrrxtwk6q (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000213E7B55090>: Failed to resolve 'sampleforlink.my.canva.site' ([Errno 11001] getaddrinfo failed)")) [in D:\new\backend\routes\scan.py:162]
+2025-06-26 19:11:53,989 ERROR: Not Found: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in D:\new\backend\app.py:38]
+2025-06-26 19:12:34,823 ERROR: Connection refused while scanning http://127.0.0.1:5501/index.html. Target server may be down or not accepting connections. [in D:\new\backend\routes\scan.py:160]
+2025-06-26 19:12:37,905 ERROR: Connection refused while scanning http://127.0.0.1:5501/index.html. Target server may be down or not accepting connections. [in D:\new\backend\routes\scan.py:160]
+2025-06-26 19:13:15,755 ERROR: Connection refused while scanning http://127.0.0.1:5501/index.html. Target server may be down or not accepting connections. [in D:\new\backend\routes\scan.py:160]
+2025-06-26 19:13:57,106 ERROR: Connection refused while scanning http://127.0.0.1:5501/index.html. Target server may be down or not accepting connections. [in D:\new\backend\routes\scan.py:160]
+2025-06-26 19:14:30,199 ERROR: Exception on /settings [GET] [in D:\new\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\new\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\new\backend\routes\settings.py", line 89, in settings_page
+    return render_template('settings.html')
+           ^^^^^^^^^^^^^^^
+NameError: name 'render_template' is not defined
+2025-06-26 19:14:30,200 ERROR: Server Error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in D:\new\backend\app.py:32]
+2025-06-26 19:17:31,951 ERROR: Connection refused while scanning http://127.0.0.1:5501/index.html. Target server may be down or not accepting connections. [in D:\new\backend\routes\scan.py:160]
+2025-06-26 19:20:26,035 ERROR: Exception on /settings [GET] [in D:\new\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\new\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\new\backend\routes\settings.py", line 89, in settings_page
+    return render_template('settings.html')
+           ^^^^^^^^^^^^^^^
+NameError: name 'render_template' is not defined
+2025-06-26 19:20:26,036 ERROR: Server Error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in D:\new\backend\app.py:32]
+2025-06-26 19:50:17,464 ERROR: Exception on /settings [GET] [in D:\new\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\new\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\new\backend\routes\settings.py", line 89, in settings_page
+    return render_template('settings.html')
+           ^^^^^^^^^^^^^^^
+NameError: name 'render_template' is not defined
+2025-06-26 19:50:17,468 ERROR: Server Error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in D:\new\backend\app.py:32]

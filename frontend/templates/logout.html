@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - Dead Link Detector</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/static/js/theme.js" defer></script>
+    <style>
+        .logout-card {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 2rem;
+            text-align: center;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .success-icon {
+            font-size: 48px;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logout-message {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .redirect-message {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="auth-page">
+    <div class="logout-card">
+        <i class="fas fa-check-circle success-icon"></i>
+        <h2 class="logout-message">Logout successful!</h2>
+        <p class="redirect-message">Redirecting to login page...</p>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = '/login';
+        }, 2500);
+    </script>
+</body>
+</html>

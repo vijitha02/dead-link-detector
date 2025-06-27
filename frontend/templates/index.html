@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dead Link Detector</title>
+  <link rel="stylesheet" href="http://127.0.0.1:5000/static/css/style.css">
+  <link rel="stylesheet" href="http://127.0.0.1:5000/static/css/dark-mode.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="/static/js/theme.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Dead Link Detector</h1>
+    <nav>
+      <div class="nav-left">
+        <a href="http://127.0.0.1:5000/">Home</a>
+        <a href="http://127.0.0.1:5000/history">History</a>
+        <a href="http://127.0.0.1:5000/analytics">Analytics</a>
+      </div>
+      <div class="nav-right">
+        {% if session.get('user_id') %}
+          <span class="username">Welcome, {{ user.username }}</span>
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="http://127.0.0.1:5000/api/logout" class="btn-logout">Logout</a>
+        {% else %}
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
+          <a href="http://127.0.0.1:5000/login">Login</a>
+          <a href="http://127.0.0.1:5000/signup">Sign Up</a>
+        {% endif %}
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <form id="scan-form" class="scan-form">
+      <h2>Website Scanner</h2>
+      <div class="form-group">
+        <input type="url" name="url" placeholder="Enter website URL" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Email (optional)">
+      </div>
+      <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" name="external">
+          <span>Check external links</span>
+        </label>
+      </div>
+      <button type="submit" class="scan-button">
+        <span class="button-text">Start Scan</span>
+        <span class="button-icon">🔍</span>
+      </button>
+    </form>
+    <section id="results">
+      <!-- Results shown here after scan -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dead Link Detector | Built with ❤️</p>
+  </footer>
+
+  <script src="http://127.0.0.1:5000/static/js/main.js"></script>
+</body>
+</html>

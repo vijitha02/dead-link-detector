@@ -1,0 +1,63 @@
+2025-06-26 19:57:28,954 ERROR: Exception on /settings [GET] [in D:\new\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\new\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\new\backend\routes\settings.py", line 89, in settings_page
+    return render_template('settings.html')
+           ^^^^^^^^^^^^^^^
+NameError: name 'render_template' is not defined
+2025-06-26 19:57:28,958 ERROR: Server Error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in D:\new\backend\app.py:32]
+2025-06-26 20:43:36,261 ERROR: Exception on /settings [GET] [in D:\new\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\new\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\new\backend\routes\settings.py", line 89, in settings_page
+    return render_template('settings.html')
+           ^^^^^^^^^^^^^^^
+NameError: name 'render_template' is not defined
+2025-06-26 20:43:36,264 ERROR: Server Error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in D:\new\backend\app.py:32]
+2025-06-26 20:44:00,392 ERROR: Exception on /settings [GET] [in D:\new\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\new\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\new\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\new\backend\routes\settings.py", line 89, in settings_page
+    return render_template('settings.html')
+           ^^^^^^^^^^^^^^^
+NameError: name 'render_template' is not defined
+2025-06-26 20:44:00,395 ERROR: Server Error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in D:\new\backend\app.py:32]
+2025-06-26 20:44:39,858 ERROR: Not Found: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in D:\new\backend\app.py:38]
+2025-06-26 20:45:47,503 ERROR: Not Found: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in D:\new\backend\app.py:38]
+2025-06-26 20:52:08,602 ERROR: Not Found: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in D:\new\backend\app.py:38]
+2025-06-26 21:00:49,189 ERROR: Not Found: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in D:\new\backend\app.py:38]
+2025-06-26 21:11:31,208 ERROR: Connection refused while scanning http://127.0.0.1:5502/index.html. Target server may be down or not accepting connections. [in D:\new\backend\routes\scan.py:160]
+2025-06-27 08:19:48,520 ERROR: Not Found: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again. [in D:\new\backend\app.py:38]

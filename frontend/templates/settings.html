@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Dead Link Detector</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/static/js/theme.js" defer></script>
+</head>
+<body class="settings-page">
+    <header>
+        <h1><i class="fas fa-cog"></i> Settings</h1>
+        <nav>
+            <div class="nav-left">
+                <a href="/"><i class="fas fa-home"></i> Home</a>
+                <a href="/history"><i class="fas fa-history"></i> History</a>
+                <a href="/analytics"><i class="fas fa-chart-line"></i> Analytics</a>
+            </div>
+            <div class="nav-right">
+                {% if session.get('user_id') %}
+                    <span class="username">Welcome, {{ user.username }}</span>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="/api/logout" class="btn-logout">Logout</a>
+                {% else %}
+                    <a href="/login">Login</a>
+                    <a href="/signup">Sign Up</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <main class="settings-page container">
+        <div class="settings-container">
+            <section class="settings-section card">
+                <h2><i class="fas fa-clock"></i> Scheduled Scans</h2>
+                <form id="schedule-form" class="settings-form">
+                    <div class="form-group switch-group">
+                        <label for="schedule-enabled" class="switch-label">Enable Scheduled Scans</label>
+                        <label class="switch">
+                            <input type="checkbox" id="schedule-enabled" name="enabled">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="schedule-frequency"><i class="fas fa-sync"></i> Scan Frequency</label>
+                        <div class="input-group">
+                            <select id="schedule-frequency" name="frequency" class="select-styled">
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="schedule-time"><i class="fas fa-clock"></i> Scan Time</label>
+                        <div class="input-group">
+                            <input type="time" id="schedule-time" name="time" class="time-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notification-email"><i class="fas fa-envelope"></i> Notification Email</label>
+                        <div class="input-group">
+                            <input type="email" id="notification-email" name="email" placeholder="Enter email for notifications">
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section class="settings-section card">
+                <h2><i class="fas fa-search"></i> Scan Settings</h2>
+                <form id="scan-settings-form" class="settings-form">
+                    <div class="form-group">
+                        <label for="timeout"><i class="fas fa-hourglass-end"></i> Request Timeout (seconds)</label>
+                        <div class="input-group number-input">
+                            <input type="number" id="timeout" name="timeout" min="1" max="30" value="5">
+                            <div class="number-controls">
+                                <button type="button" class="number-up"><i class="fas fa-chevron-up"></i></button>
+                                <button type="button" class="number-down"><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="max-depth"><i class="fas fa-level-down-alt"></i> Maximum Crawl Depth</label>
+                        <div class="input-group number-input">
+                            <input type="number" id="max-depth" name="maxDepth" min="1" max="10" value="3">
+                            <div class="number-controls">
+                                <button type="button" class="number-up"><i class="fas fa-chevron-up"></i></button>
+                                <button type="button" class="number-down"><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="concurrent-requests"><i class="fas fa-network-wired"></i> Concurrent Requests</label>
+                        <div class="input-group number-input">
+                            <input type="number" id="concurrent-requests" name="concurrentRequests" min="1" max="10" value="5">
+                            <div class="number-controls">
+                                <button type="button" class="number-up"><i class="fas fa-chevron-up"></i></button>
+                                <button type="button" class="number-down"><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <div class="form-group switch-group">
+                            <label class="switch-label"><i class="fas fa-random"></i> Follow Redirects</label>
+                            <label class="switch">
+                                <input type="checkbox" name="followRedirects" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="form-group switch-group">
+                            <label class="switch-label"><i class="fas fa-image"></i> Check Image Links</label>
+                            <label class="switch">
+                                <input type="checkbox" name="checkImages" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="form-group switch-group">
+                            <label class="switch-label"><i class="fas fa-code"></i> Check Script Sources</label>
+                            <label class="switch">
+                                <input type="checkbox" name="checkScripts" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="form-group switch-group">
+                            <label class="switch-label"><i class="fas fa-paint-brush"></i> Check Stylesheet Links</label>
+                            <label class="switch">
+                                <input type="checkbox" name="checkStyles" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section class="settings-section card">
+                <h2><i class="fas fa-palette"></i> Display Settings</h2>
+                <form id="display-settings-form" class="settings-form">
+                    <div class="form-group">
+                        <label for="theme"><i class="fas fa-paint-brush"></i> Theme</label>
+                        <div class="input-group">
+                            <select id="theme" name="theme" class="select-styled">
+                                <option value="system">System Default</option>
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date-format"><i class="fas fa-calendar-alt"></i> Date Format</label>
+                        <div class="input-group">
+                            <select id="date-format" name="dateFormat" class="select-styled">
+                                <option value="local">Local</option>
+                                <option value="iso">ISO 8601</option>
+                                <option value="relative">Relative</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <div class="settings-actions">
+                <button type="button" class="btn-secondary" id="reset-settings">
+                    <i class="fas fa-undo"></i> Reset to Defaults
+                </button>
+                <button type="button" class="btn-primary" id="save-settings">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <p>&copy; 2025 Dead Link Detector | Built with <i class="fas fa-heart text-danger"></i></p>
+    </footer>
+
+    <script src="/static/js/settings.js"></script>
+</body>
+</html>

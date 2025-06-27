@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan History - Dead Link Detector</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/static/js/theme.js" defer></script>
+</head>
+<body class="history-page">
+    <header>
+        <h1><i class="fas fa-history"></i> Scan History</h1>
+        <nav>
+            <div class="nav-left">
+                <a href="/"><i class="fas fa-home"></i> Home</a>
+                <a href="/history"><i class="fas fa-history"></i> History</a>
+                <a href="/analytics"><i class="fas fa-chart-line"></i> Analytics</a>
+            </div>
+            <div class="nav-right">
+                {% if session.get('user_id') %}
+                    <span class="username">Welcome, {{ user.username }}</span>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="/api/logout" class="btn-logout">Logout</a>
+                {% else %}
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="/login">Login</a>
+                    <a href="/signup">Sign Up</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="history-controls">
+            <button id="export-csv" class="btn-primary">
+                <i class="fas fa-file-export"></i> Export to CSV
+            </button>
+            <div class="sort-container">
+                <i class="fas fa-sort"></i>
+                <select id="sort-by" class="select-styled">
+                    <option value="date">Sort by Date</option>
+                    <option value="broken">Sort by Broken Links</option>
+                    <option value="total">Sort by Total Links</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="history-list">
+            <!-- History items will be dynamically inserted here -->
+        </div>
+
+        <template id="history-item-template">
+            <div class="history-item card">
+                <div class="history-header">
+                    <h3 class="url"><i class="fas fa-link"></i> <span class="url-text"></span></h3>
+                    <span class="date"><i class="far fa-calendar-alt"></i> <span class="date-text"></span></span>
+                </div>
+                <div class="history-stats">
+                    <div class="stat">
+                        <i class="fas fa-link"></i>
+                        <span class="label">Total Links:</span>
+                        <span class="total-links badge"></span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-unlink"></i>
+                        <span class="label">Broken Links:</span>
+                        <span class="broken-links badge badge-error"></span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-sitemap"></i>
+                        <span class="label">Internal Links:</span>
+                        <span class="internal-links badge badge-info"></span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span class="label">External Links:</span>
+                        <span class="external-links badge badge-warning"></span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span class="label">Avg Response Time:</span>
+                        <span class="avg-response-time badge badge-success"></span>
+                    </div>
+                </div>
+                <div class="history-actions">
+                    <button class="btn-secondary view-details">
+                        <i class="fas fa-eye"></i> View Details
+                    </button>
+                    <button class="btn-primary download-report">
+                        <i class="fas fa-download"></i> Download Report
+                    </button>
+                </div>
+                <div class="broken-links-details hidden">
+                    <!-- Broken links details will be shown here -->
+                </div>
+            </div>
+        </template>
+    </main>
+
+    <footer class="app-footer">
+        <p>&copy; 2025 Dead Link Detector | Built with <i class="fas fa-heart text-danger"></i></p>
+    </footer>
+
+    <script src="/static/js/history.js"></script>
+</body>
+</html>
